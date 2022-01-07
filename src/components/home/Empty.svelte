@@ -1,9 +1,12 @@
 <script>
-    export let background = "#444";
+    export let background = "#444",
+        showImg = true;
 </script>
 
 <div class="container" style={`background:${background}`}>
-    <img width="100" src="./finger-pointer.png" alt="Finger pointer" />
+    {#if showImg}
+        <img width="100" src="./finger-pointer.png" alt="Finger pointer" />
+    {/if}
 </div>
 
 <style>

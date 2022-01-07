@@ -29,7 +29,7 @@
 
 <div class="scene">
     <div class="cube" bind:this={cube}>
-        <div class="cube__face cube__face--back"><Empty /></div>
+        <div class="cube__face cube__face--back"><Empty showImg={false} /></div>
         <div
             class="cube__face cube__face--back-reverse"
             on:click={() =>
@@ -49,7 +49,9 @@
         >
             <Intro />
         </div>
-        <div class="cube__face cube__face--bottom"><Empty /></div>
+        <div class="cube__face cube__face--bottom">
+            <Empty showImg={false} />
+        </div>
         <div
             class="cube__face cube__face--bottom-reverse"
             on:click={() =>
@@ -69,6 +71,7 @@
         height: var(--size);
         perspective: calc(var(--size) * 3);
         user-select: none;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .cube {
@@ -82,6 +85,7 @@
         transform-style: preserve-3d;
         transform: var(--tstate);
         cursor: pointer;
+        -webkit-font-smoothing: subpixel-antialiased;
     }
     :global(.cube.animation) {
         cursor: wait;
