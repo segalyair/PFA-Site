@@ -5,6 +5,7 @@
     import Welcome from "./home/Welcome.svelte";
     import Contact from "./home/Contact.svelte";
     import Portofolio from "./home/Portofolio.svelte";
+    import { hideInfo } from "../store.js";
     let cube,
         currentFace = "right-reverse";
     function rotateCubeFace(face, to) {
@@ -13,6 +14,7 @@
         if (animCls == "animation") {
             return;
         }
+        hideInfo.set(true);
         currentFace = face;
         cube.style.setProperty("--to", to);
         cube.classList.add("animation");
@@ -113,6 +115,7 @@
         border: 1px solid orangered;
     }
     .cube__face.active {
+        pointer-events: all;
         cursor: initial;
         border: 1px solid orange;
     }
